@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import "tailwindcss";
+
+* {
+    font-family: "Outfit", sans-serif;
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.navbar {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.navfix {
+    @apply bg-blue-800;
+}
+
+.btn {
+    padding: 10px 20px;
+}
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
