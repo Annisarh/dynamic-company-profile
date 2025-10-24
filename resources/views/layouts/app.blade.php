@@ -50,7 +50,7 @@
         {{-- hero ends --}}
 
 
-        <main class="py-4 pt-[38px] text-center">
+        <main class="py-4 pt-[58px] text-center">
             @yield('content')
         </main>
 
