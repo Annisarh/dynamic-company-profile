@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('company')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -39,10 +39,17 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{route('admin.about')}}">About</a>
                         <a class="collapse-item" href="{{route('admin.program')}}">Program</a>
-                        <a class="collapse-item" href="cards.html">Gallery</a>
-                        <a class="collapse-item" href="cards.html">Testimonials</a>
+                        <a class="collapse-item" href="{{route('admin.gallery')}}">Gallery</a>
+                        <a class="collapse-item" href="{{route('admin.testi')}}">Testimonials</a>
                     </div>
                 </div>
+            </li>
+
+             <!-- Nav Item - Aricles -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.articles')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Articles</span></a>
             </li>
 
             <!-- Divider -->
