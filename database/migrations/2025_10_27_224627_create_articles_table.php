@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('judul');
             $table->string('image');
             $table->string('author');
+            $table->string('excerpt');
             $table->text('article');
+            $table->integer('countViews');
             $table->timestamps();
         });
     }

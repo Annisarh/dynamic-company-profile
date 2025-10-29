@@ -7,10 +7,11 @@ use App\Models\Article;
 use App\Models\Gallery;
 use App\Models\Program;
 use App\Models\Testimoni;
-use Illuminate\Contracts\Support\ValidatedData;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Contracts\Support\ValidatedData;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
 
 class AdminController extends Controller
@@ -88,7 +89,7 @@ class AdminController extends Controller
     {
         $rule = [
             'name' => 'required|string|min:6|max:25',
-            'image' => 'image|file|mimes:png,jpg,jpeg',
+            'image' => 'image|file|mimes:png,jpg,jpeg,avif',
             'deskripsi' => 'string'
         ];
         $validateData = $request->validate($rule);
@@ -127,7 +128,7 @@ class AdminController extends Controller
         ];
         $validateData = $request->validate($rule);
         // dd($validateData);
-        if ($request->file('oldimage')) {
+        if ($request->imagegall) {
             if ($request->oldimage) {
                 Storage::delete($request->oldimage);
             }
@@ -212,13 +213,14 @@ class AdminController extends Controller
         // dd($request->all());
         $rules = [
             'judul' => 'required|string|min:5',
-            'image' => 'required|image|file',
+            'image' => 'required|file|mimes:png,jpg,jpeg,avif',
             'author' => 'required|string',
             'article' => 'required',
         ];
         $validateData = $request->validate($rules);
         $validateData['image'] = $request->file('image')->store('images');
-
+        $validateData['excerpt'] = Str::limit(strip_tags($request->article), 180);
+        // dd($validateData);
         $article->create($validateData);
         return redirect()->route('admin.articles')->with('success', 'article success ditambahkan');
     }
@@ -240,7 +242,7 @@ class AdminController extends Controller
         // dd($request->all());
         $rules = [
             'judul' => 'required|string|min:5',
-            'image' => 'image|file',
+            'image' => 'file|mimes:png,jpg,jpeg,avif',
             'author' => 'required|string',
             'article' => 'required',
         ];
@@ -252,6 +254,8 @@ class AdminController extends Controller
             $validateData['image'] = $request->file('image')->store('images');
         }
 
+        $validateData['excerpt'] = Str::limit(strip_tags($article->article), 180);
+        // dd($validateData);
         $article->update($validateData);
         return redirect()->route('admin.articles')->with('success', 'Successfuly update');
     }

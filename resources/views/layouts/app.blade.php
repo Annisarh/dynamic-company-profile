@@ -42,17 +42,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     {{-- <script src="resources/js/script.js"></script> --}}
     <script type="text/javascript">
-        window.onscroll = function(){
-            // navheader
-            const header = document.querySelector('nav');
-            const fixedNav = header.offsetTop;
-            if(window.pageYOffset > 200 ){
-                header.classList.add('navfix');
-            } else {
-                header.classList.remove('navfix');
-            }
-        }
-
         // navmenu
         const menu = document.querySelector("#menu-icon");
         const navbar = document.querySelector("#nav-bar");

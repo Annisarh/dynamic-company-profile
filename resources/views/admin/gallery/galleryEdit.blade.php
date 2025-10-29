@@ -8,7 +8,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Image Gallery</label>
-                        <img src="{{asset('storage/images/'. $gallery->imagegall)}}" class="d-block mb-3" alt="" style="width: 250px; height: 250px;">
+                        <img src="{{asset('storage/'. $gallery->imagegall)}}" class="d-block mb-3" alt="" style="width: 250px; height: 250px;">
                         <input type="hidden" name="oldimage" value="{{$gallery->image}}" id="">
                         <input type="file" name="imagegall" class="form-control @error('imagegall')
                             is-invalid

@@ -29,7 +29,7 @@
                        <th scope="row">{{$loop->iteration}}</th>
                        <td>{{$item->nametesti}}</td>
                        <td>
-                            <img src="storage/images/{{$item->profile}}" alt="">
+                            <img src="storage/{{$item->profile}}" style="max-width: 200px" alt="">
                        </td>
                        <td>{{$item->asal}}</td>
                        <td>{{$item->testi}}</td>

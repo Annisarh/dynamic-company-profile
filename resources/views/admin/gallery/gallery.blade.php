@@ -12,7 +12,7 @@
             @foreach ($gallery as $item)
             <div class="col-md-4 p-3">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{asset('storage/images/'. $item->imagegall)}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{asset('storage/'. $item->imagegall)}}" alt="Card image cap">
                     <div class="card-body text-left">
                         <p class="card-text">{{$item->deskripsigall}}</p>
                         <a href="{{route('admin.gallery.edit', $item->id)}}" class="btn btn-primary">Edit</a>

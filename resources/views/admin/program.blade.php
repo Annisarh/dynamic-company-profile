@@ -28,7 +28,7 @@
                        <th scope="row">{{$loop->iteration}}</th>
                        <td>{{$program->nameprogram}}</td>
                        <td>
-                            <img src="storage/{{$program->image}}" alt="">
+                            <img src="storage/{{$program->image}}" style="max-width: 250px;">
                        </td>
                        <td>{{$program->deskripsi}}</td>
                        <td>

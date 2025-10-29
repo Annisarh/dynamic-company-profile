@@ -12,6 +12,8 @@ class Article extends Model
         'judul',
         'image',
         'author',
-        'article'
+        'excerpt',
+        'article',
+        'countViews',
     ];
 }
