@@ -31,7 +31,7 @@
                 <p>&copy; 2025 Edusity. All rights reserved</p>
                 <div class="flex flex-row gap-6">
                     <p>Terms of Services</p>
-                    <p>Privacy Polict</p>
+                    <p>Privacy Policty</p>
                 </div>
             </div>
         </footer>

@@ -10,8 +10,9 @@
                 <li><a href="#kampus" class="sm:hover:border-b">Kampus</a></li>
                 <li><a href="#testi" class="sm:hover:border-b">Testimoni</a></li>
                 <li>
-                    <button class="sm:px-4 sm:py-2 text-xl rounded-3xl sm:bg-white sm:text-black cursor-pointer hover:scale-105">Contact us</button>
+                    <button class="sm:px-4 sm:py-2 text-xl rounded-3xl sm:bg-white sm:text-black cursor-pointer hover:scale-105"><a href="#contact">Contact us</a></button>
                 </li>
+                <li><a href="{{route('login')}}" class="sm:hover:border-b">Login</a></li>
             </ul>
         </nav>
         {{-- navbar ends --}}
@@ -23,8 +24,11 @@
                      {{$newAbout['tagline']}}
                 </div>
                 <p class="md:text-md text-white md:w-1/2 text-center">{{$newAbout['about']}}</p>
-                <button class="px-6 py-3 bg-white text-gray-800 font-semibold text-md rounded-3xl flex items-center gap-2">Explore more 
-                    <img src="images/dark-arrow.png" class="w-7 h-4" alt="">
+                <button class="px-7 py-3 bg-white text-gray-800 font-semibold text-md rounded-3xl flex items-center gap-2">
+                    <a href="#contact" class="flex items-center gap-2">
+                        Explore more 
+                    <img src="images/dark-arrow.png" class="w-7 h-3" alt="">
+                    </a>
                 </button>
             </div>
         </div>
@@ -65,10 +69,11 @@
 
     {{-- about university start --}}
     <div id="about" class="py-4 mt-[78px] text-center">
-        <div class="flex flex-col-reverse md:flex-row pl-[10%] pr-[10%] gap-8">
+        <div class="flex flex-col-reverse md:flex-row pl-[10%] pr-[10%] gap-8 items-center">
             <div class="w-full sm:w-1/2">
-                <img src="images/about.png" alt="" class="rounded-3xl">
+                {{-- <img src="images/about.png" alt="" class="rounded-3xl"> --}}
                 {{-- <iframe class="" src="https://youtu.be/qD8NzzzeAp0"></iframe> --}}
+                <iframe width="530" height="315" src="https://www.youtube.com/embed/LlCwHnp3kL4?si=oCd5jg8nWwBFUp_a?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" class="rounded-3xl"></iframe>
             </div>
             <div class="text-left text-md h-full flex flex-col w-full sm:w-[90%]">
                 <h4 class="font-semibold text-xl text-blue-800">ABOUT UNIVERSITY</h4>
@@ -116,7 +121,7 @@
             {{-- <img src="images/back-icon.png" class="absolute bg-blue-700 sm:p-[15px] p-[15px] w-[45px] -top-8 sm:left-0 -left-3 rounded-[50%]" alt="">
             <img src="images/next-icon.png" class="absolute bg-blue-700 sm:p-[15px] p-[15px] w-[45px] -top-8 sm:left-12 left-10 rounded-[50%]" alt=""> --}}
            <div class="mt-8 swiper w-full h-fit py-8">
-            <div class="slider-wrapper">
+            <div class="slider-wrapper mb-8">
                 <ul class="transition-transform duration-500 ease-in-out swiper-wrapper">
                     @foreach ($alumnies as $item)
                     <li class="shrink-0 w-full sm:w-1/2 text-left text-sm text-gray-700 leading-7 swiper-slide">
@@ -206,7 +211,9 @@
                     </li> --}}
                 </ul>
             </div>
-           </div>
+             <!-- If we need pagination -->
+             <div class="swiper-pagination"></div>
+            </div>
         </div>
     </div>
     {{-- testimonial ends --}}
@@ -243,7 +250,7 @@
     {{-- our article ends --}}
 
     {{-- contact start --}}
-    <div class="py-4 mt-[70px] pl-[10%] pr-[10%]">
+    <div id="contact" class="py-4 mt-[70px] pl-[10%] pr-[10%]">
         <div class="text-center mb-12">
             <h4 class="font-semibold text-xl text-blue-800 uppercase">Contact us</h4>
             <h1 class="font-bold text-4xl">Get in Touch</h1>
@@ -271,29 +278,31 @@
                 </p>
             </div>
             <div id="right-side">
-                <form action="">
+                <form action="mailto:annisarahmadani2311@gmail.com" method="post" enctype="text/plain">
                     <div class="flex flex-col text-left gap-3 text-sm font-medium text-gray-600 mb-4">
                         <label for="">Your name</label>
-                        <input type="text" name="name" placeholder="Enter your name" class="bg-gray-200 p-2 outline-0 h-10">
+                        <input type="text" name="name" placeholder="Enter your name" class="bg-gray-200 p-2 outline-0 h-10" required>
                     </div>
                     <div class="flex flex-col text-left gap-3 text-sm font-medium text-gray-600 mb-4">
                         <label for="">Phone Number</label>
-                        <input type="text" name="name" placeholder="Enter your mobile number" class="bg-gray-200 p-2 outline-0 h-10">
+                        <input type="text" name="name" placeholder="Enter your mobile number" class="bg-gray-200 p-2 outline-0 h-10" required>
                     </div>
                     <div class="flex flex-col text-left gap-3 text-sm font-medium text-gray-600 mb-4">
                         <label for="">Your Email</label>
-                        <input type="text" name="name" placeholder="Enter your email id" class="bg-gray-200 p-2 outline-0 h-10">
+                        <input type="text" name="name" placeholder="Enter your email id" class="bg-gray-200 p-2 outline-0 h-10" required>
                     </div>
                     <div class="flex flex-col text-left gap-3 text-sm font-medium text-gray-600 mb-4">
                         <label for="">Write your messages here</label>
-                        <textarea type="text" name="name" placeholder="Enter your message" class="bg-gray-200 p-2 outline-0 h-25"></textarea>
+                        <textarea type="text" name="name" placeholder="Enter your message" class="bg-gray-200 p-2 outline-0 h-25" required></textarea>
                     </div>
                      <button class="px-6 py-3 bg-blue-800 text-white font-semibold text-md rounded-3xl flex items-center gap-2 cursor-pointer">Submit now 
                     <img src="images/white-arrow.png" class="w-7 h-4" alt="">
                 </button>
                 </form>
             </div>
-
+        </div>
+        <div class="mt-8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.215595161761!2d-71.0931389!3d42.3592444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e370a9c4b62527%3A0x82c2e8349cec437!2s77%20Massachusetts%20Ave%2C%20Cambridge%2C%20MA%2002139%2C%20Amerika%20Serikat!5e0!3m2!1sid!2sid!4v1762042432842!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
         </div>
     </div>
     {{-- contact ends --}}
